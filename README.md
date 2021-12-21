@@ -1,6 +1,4 @@
-# AdminAngular Template
+# Prudenza dasboard
 
-proyecto bace para la realizacion de proyectos en angular de administradores
-Rutas ya cereadas
-
-prueva
+el dasboard para administrar los seguros de los clientes
+no se olviden instalar npm i
