@@ -13,8 +13,11 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   ]
 })
 export class HeaderComponent {
+  public imgUrl:any = '';
 
-  constructor(private usuarioService: UsuarioService) { }
+  constructor(private usuarioService: UsuarioService) {
+    this.imgUrl = usuarioService.usuario?.imagenUrl;
+  }
   logout() {
     this.usuarioService.logout();
   }

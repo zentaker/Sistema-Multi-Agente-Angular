@@ -6,6 +6,7 @@ import { catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { LoginForm } from '../interfaces/login-forminterfaces';
 import { RegisterForm } from '../interfaces/register-form.interface';
+import { Usuario } from '../models/usuario.model';
 
 
 const base_url = environment.base_url;
@@ -17,6 +18,7 @@ declare const gapi:any;
 export class UsuarioService {
 
   public auth2: any;
+  public usuario: Usuario | undefined;
 
   constructor(private http: HttpClient,
               private router: Router,
@@ -61,6 +63,17 @@ export class UsuarioService {
         'x-token': token
       }
     }).pipe( map((resp:any)=> {
+
+      //centralizar la informacion de los usuarios
+      console.log(resp);
+      //destructuring del objeto usuario
+      const {email, google, nombre, role,img, uid} = resp.usuario;
+
+      //creacion de la instancia
+      this.usuario = new Usuario(nombre,email, '', img , google, role, uid)
+
+      //llamar a un metodo de un modelo
+      //this.usuario.imprimirUsuario();
       localStorage.setItem('token', resp.token);
       return true;
 
