@@ -20,10 +20,13 @@ export class HeaderComponent  {
 
 
 
+
+
   constructor(private usuarioService: UsuarioService) {
     this.imgUrl = usuarioService.usuario?.imagenUrl;
     this.nombre = usuarioService.usuario?.nombre;
     this.email = usuarioService.usuario?.email;
+
 
   }
 

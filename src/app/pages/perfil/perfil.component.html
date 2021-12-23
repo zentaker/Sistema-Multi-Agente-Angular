@@ -5,7 +5,9 @@
               <h4 class="m-b-0 text-white">Edita tu Perfil</h4>
           </div>
           <div class="card-body">
-              <form action="#">
+              <form action="#"
+                    [formGroup]="perfilForm"
+                    (submit)="actualizarPerfil()">
                   <div class="form-body mb-5">
 
                     <h3 class="box-title">Información</h3>
@@ -16,14 +18,24 @@
                           <div class="col-md-6">
                               <div class="form-group">
                                   <label class="control-label">Nombre</label>
-                                  <input type="text" id="firstName" class="form-control" placeholder="Nombre">
+                                  <input type="text"
+                                         id="firstName"
+                                         class="form-control"
+                                         placeholder="Nombre del Usuario"
+                                         formControlName="nombre">
                                    </div>
+
+
                           </div>
                           <!--/span-->
                           <div class="col-md-6">
                               <div class="form-group">
                                   <label class="control-label">Correo</label>
-                                  <input type="text" id="lastName" class="form-control form-control" placeholder="Correo">
+                                  <input type="text"
+                                         id="lastName"
+                                         class="form-control form-control"
+                                         placeholder="Correo"
+                                         formControlName="email">
                                    </div>
                           </div>
                           <!--/span-->
