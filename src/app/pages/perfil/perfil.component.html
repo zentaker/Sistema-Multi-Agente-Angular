@@ -35,7 +35,8 @@
                                          id="lastName"
                                          class="form-control form-control"
                                          placeholder="Correo"
-                                         formControlName="email">
+                                         formControlName="email"
+                                         [readOnly]="google">
                                    </div>
                           </div>
                           <!--/span-->
@@ -66,8 +67,11 @@
                       (click)="subirImagen()"
                       [disabled]="!imagenSubir"> <i class="fa fa-check"></i> Save</button>
 
+                      <img *ngIf="!imgTemp" [src]="imgUrl" class="img-avatar" alt="">
+                      <img *ngIf="imgTemp" [src]="imgTemp" class="img-avatar" alt="">
 
-<br><br><br>
+
+<br><br><br><br><br><br><br><br>
 
 
 

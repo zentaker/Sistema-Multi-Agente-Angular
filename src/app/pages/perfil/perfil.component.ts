@@ -16,6 +16,9 @@ export class PerfilComponent implements OnInit {
   public email:any = '';
   public id:any ='';
   public imagenSubir!: File;
+  public imgUrl:any = '';
+  public imgTemp: any = '';
+  public google:any ='';
 
   constructor(private usuarioService: UsuarioService,
               private ref: ChangeDetectorRef,
@@ -24,6 +27,8 @@ export class PerfilComponent implements OnInit {
     this.nombre = usuarioService.usuario?.nombre;
     this.email = usuarioService.usuario?.email;
     this.id = usuarioService.usuario?.uid;
+    this.imgUrl = usuarioService.usuario?.imagenUrl;
+    this.google = usuarioService.usuario?.google;
 
   }
 
@@ -52,10 +57,28 @@ export class PerfilComponent implements OnInit {
         showConfirmButton: false,
         timer: 1500
       })
+    }, (err)=> {
+      console.log(err.error.msg)
+      Swal.fire('Error', err.error.msg, 'error')
     })
   }
-  cambiarImagen(event: any) {
+  cambiarImagen(event: any):void {
     this.imagenSubir = event.target.files[0];
+    //si el archivo existe se ejecutan las lineas posteriores
+    if(!event.target.files[0]){
+      return this.imgTemp = undefined;
+    }
+
+    const reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+
+    reader.onloadend = () => {
+      this.imgTemp = reader.result
+
+    }
+
+
+
 
 
   }
