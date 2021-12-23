@@ -67,7 +67,7 @@ export class UsuarioService {
       //centralizar la informacion de los usuarios
       console.log(resp);
       //destructuring del objeto usuario
-      const {email, google, nombre, role,img, uid} = resp.usuario;
+      const {email, google, nombre, role,img='', uid} = resp.usuario;
 
       //creacion de la instancia
       this.usuario = new Usuario(nombre,email, '', img , google, role, uid)
