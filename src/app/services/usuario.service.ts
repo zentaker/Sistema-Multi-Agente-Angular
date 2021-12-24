@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, delay, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { cargarUsuario } from '../interfaces/cargar-usuarios.interfaces';
 import { LoginForm } from '../interfaces/login-forminterfaces';
@@ -147,6 +147,8 @@ export class UsuarioService {
     const url = `${base_url}/usuarios?desde=${desde}`;
     //tambien se puede crear una interfase
     return this.http.get<cargarUsuario>(url, this.headers).pipe(
+      //para retrasar la carga
+      //delay(1000),
       map(resp => {
         const usuarios = resp.usuarios.map(
           user=> new Usuario(user.nombre, user.email,'', user.img, user.google, user.role,user.uid ))
