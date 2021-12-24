@@ -10,6 +10,9 @@ import { RxjsComponent } from "./rxjs/rxjs.component";
 import { AuthGuard } from "../guards/auth.guard";
 import { PerfilComponent } from "./perfil/perfil.component";
 
+//mantenimientos
+import { UsuariosComponent } from "./mantenimientos/usuarios/usuarios.component";
+
  const routes: Routes = [
   {
     path: 'dashboard',
@@ -21,9 +24,12 @@ import { PerfilComponent } from "./perfil/perfil.component";
       { path: 'progress', component: ProgressComponent, data: {title: 'Progres Bar'} },
       { path: 'grafica1', component: Grafica1Component, data: {title: 'Grafica'} },
       { path: 'account-settings', component: AccountSettingsComponent, data: {title: 'Tema'} },
-      { path: 'promesas', component: PromesasComponent,  data: {title: 'Promesas'}},
-      { path: 'rxjs', component: RxjsComponent, data: {title: 'Rxjs'} },
+
       { path: 'perfil', component: PerfilComponent, data: {title: 'Perfil de Usuario'} },
+
+      //mantenimientos
+      { path: 'usuarios', component: UsuariosComponent, data: {title: 'Usuarios de la aplicacion'} },
+      { path: 'polizas', component: UsuariosComponent, data: {title: 'Polizas'} },
 
     ],
   },

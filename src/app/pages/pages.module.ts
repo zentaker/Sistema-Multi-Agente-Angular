@@ -14,6 +14,11 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
+import { PolizasComponent } from './mantenimientos/polizas/polizas.component';
+import { BeneficiosComponent } from './mantenimientos/beneficios/beneficios.component';
+import { CoberturasComponent } from './mantenimientos/coberturas/coberturas.component';
+import { AsesoresComponent } from './mantenimientos/asesores/asesores.component';
 
 
 @NgModule({
@@ -26,6 +31,11 @@ import { PerfilComponent } from './perfil/perfil.component';
     PromesasComponent,
     RxjsComponent,
     PerfilComponent,
+    UsuariosComponent,
+    PolizasComponent,
+    BeneficiosComponent,
+    CoberturasComponent,
+    AsesoresComponent,
   ],
   exports: [
     DasboardComponent,

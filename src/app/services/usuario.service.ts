@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { cargarUsuario } from '../interfaces/cargar-usuarios.interfaces';
 import { LoginForm } from '../interfaces/login-forminterfaces';
 import { RegisterForm } from '../interfaces/register-form.interface';
 import { Usuario } from '../models/usuario.model';
@@ -33,6 +34,14 @@ export class UsuarioService {
   }
   get uid(): string {
     return this.usuario?.uid || '';
+  }
+  get headers() {
+    return {
+      headers: {
+        'x-token': this.token
+      }
+
+    }
   }
 
 
@@ -132,6 +141,23 @@ export class UsuarioService {
         return resp.usuario
       })
     );
+
+  }
+  cargarUsuarios(desde: number =0) {
+    const url = `${base_url}/usuarios?desde=${desde}`;
+    //tambien se puede crear una interfase
+    return this.http.get<cargarUsuario>(url, this.headers).pipe(
+      map(resp => {
+        const usuarios = resp.usuarios.map(
+          user=> new Usuario(user.nombre, user.email,'', user.img, user.google, user.role,user.uid ))
+        return {
+          total: resp.total,
+          usuarios
+        };
+      })
+    )
+    //return this.http.get<{total:number, usuarios:Usuario[]}>(url, this.headers);
+
 
   }
 }
