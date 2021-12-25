@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit  {
     gapi.load('auth2', () =>{
       // Retrieve the singleton for the GoogleAuth library and set up the client.
       this.auth2 = gapi.auth2.init({
-        client_id: '764564161907-a03s3i34o06jhhemfn2a1drbq9p0gtem.apps.googleusercontent.com',
+        client_id: '764564161907-28umt9qjo4480sb89dg68sfjakmkn5hq.apps.googleusercontent.com',
         cookiepolicy: 'single_host_origin',
         // Request scopes in addition to 'profile' and 'email'
         //scope: 'additional_scope'
