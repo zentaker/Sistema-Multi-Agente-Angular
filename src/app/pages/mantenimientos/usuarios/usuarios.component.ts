@@ -61,5 +61,10 @@ export class UsuariosComponent implements OnInit {
 
         });
   }
+  eliminarUsuario(usuario: Usuario){
+
+    console.log(usuario);
+
+  }
 
 }

@@ -16,3 +16,6 @@
   width: 50px;
   border-radius: 100%;
 }
+.cursor{
+  cursor: pointer;
+}
