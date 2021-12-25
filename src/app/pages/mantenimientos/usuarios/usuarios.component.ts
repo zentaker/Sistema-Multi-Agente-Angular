@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Usuario } from 'src/app/models/usuario.model';
 import { BusquedasService } from 'src/app/services/busquedas.service';
+import { ModalImagenService } from 'src/app/services/modal-imagen.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2';
 
@@ -20,7 +21,8 @@ export class UsuariosComponent implements OnInit {
 
 
   constructor(private usuarioService: UsuarioService,
-              private busquedasService: BusquedasService) { }
+              private busquedasService: BusquedasService,
+              private modalImagenService: ModalImagenService) { }
 
   ngOnInit(): void {
     this.cargarUsuarios();
@@ -98,6 +100,11 @@ export class UsuariosComponent implements OnInit {
       console.log(resp)
     }
     )
+  }
+  abrirModal(usuario:Usuario) {
+    console.log(usuario);
+    this.modalImagenService.abrirModal();
+
   }
 
 }

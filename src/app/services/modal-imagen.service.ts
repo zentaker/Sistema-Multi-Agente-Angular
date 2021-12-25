@@ -12,5 +12,8 @@ export class ModalImagenService {
   abrirModal() {
     this._ocultarModal = false
   }
+  cerrarModal() {
+    this._ocultarModal = true
+  }
   constructor() { }
 }
