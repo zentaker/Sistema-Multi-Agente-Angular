@@ -4,7 +4,9 @@
       <div class="card-body">
         <input type="text"
         class="form-control"
-        placeholder="buscar usuarios">
+        placeholder="buscar usuario..."
+        (keyup)="buscar(txtTermino.value)"
+        #txtTermino>
       </div>
     </div>
   </div>
