@@ -13,6 +13,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class UsuariosComponent implements OnInit {
   public totalUsuarios: number =0;
   public usuarios: Usuario[] = [];
+  public usuariosTemp: Usuario[] = [];
   public desde: number =0;
   public cargando: boolean = true;
 
@@ -29,6 +30,7 @@ export class UsuariosComponent implements OnInit {
     this.usuarioService.cargarUsuarios(this.desde).subscribe(({total, usuarios}) => {
       this.totalUsuarios = total;
       this.usuarios = usuarios;
+      this.usuariosTemp = usuarios;
       this.cargando = false;
     })
 
@@ -46,12 +48,18 @@ export class UsuariosComponent implements OnInit {
 
 
   }
-  buscar(termino:string) {
-    this.busquedasService.buscar('usuarios', termino).subscribe(
-      resp => {
-        this.usuarios = resp;
-      })
-    console.log(termino)
+  buscar( termino: string ) {
+
+    if ( termino.length === 0 ) {
+      return this.usuarios = this.usuariosTemp;
+    }
+
+    this.busquedasService.buscar( 'usuarios', termino )
+        .subscribe( resp => {
+
+          this.usuarios = resp;
+
+        });
   }
 
 }
