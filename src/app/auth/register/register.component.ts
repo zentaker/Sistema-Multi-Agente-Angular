@@ -56,10 +56,10 @@ export class RegisterComponent {
 
   public registerForm: FormGroup = new FormGroup(
     {
-      nombre: new FormControl('Walter Palomino', [Validators.required, Validators.minLength(5)]),
-      email: new FormControl('walter@gmail.com', [Validators.required, Validators.email]),
-      password: new FormControl('123456', [Validators.required,]),
-      password2: new FormControl('123456', [Validators.required]),
+      nombre: new FormControl('', [Validators.required, Validators.minLength(5)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required,]),
+      password2: new FormControl('', [Validators.required]),
       terminos: new FormControl(false, Validators.requiredTrue)
     }, {
     validators: validarPassword

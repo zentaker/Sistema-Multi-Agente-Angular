@@ -75,12 +75,17 @@ export class UsuariosComponent implements OnInit {
       confirmButtonText: 'Si, Borrarlo!'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.usuarioService.eliminarusuario(usuario);
-        Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success'
-        )
+        this.usuarioService.eliminarusuario(usuario).subscribe( resp => {
+          this.cargarUsuarios();
+          Swal.fire(
+            'Deleted!',
+            `${usuario.nombre} se ha borrado`,
+            'success'
+          );
+
+
+        })
+
       }
     })
 

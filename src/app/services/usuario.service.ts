@@ -163,7 +163,9 @@ export class UsuarioService {
 
   }
   eliminarusuario(usuario: Usuario) {
-    console.log('eliminando..')
+
+    const url = `${base_url}/usuarios/${usuario.uid}`;
+    return this.http.delete(url, this.headers);
 
 
   }
