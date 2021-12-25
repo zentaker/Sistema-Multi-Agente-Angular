@@ -162,4 +162,9 @@ export class UsuarioService {
 
 
   }
+  eliminarusuario(usuario: Usuario) {
+    console.log('eliminando..')
+
+
+  }
 }

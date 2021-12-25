@@ -3,6 +3,7 @@ import { map } from 'rxjs/operators';
 import { Usuario } from 'src/app/models/usuario.model';
 import { BusquedasService } from 'src/app/services/busquedas.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-usuarios',
@@ -64,6 +65,24 @@ export class UsuariosComponent implements OnInit {
   eliminarUsuario(usuario: Usuario){
 
     console.log(usuario);
+    Swal.fire({
+      title: 'Borrar usuario?',
+      text: `Esta a punto de borrar a ${usuario.nombre}`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, Borrarlo!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.usuarioService.eliminarusuario(usuario);
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
 
   }
 
