@@ -1,5 +1,6 @@
 import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { FileUpload } from '../interfaces/file-upload.interfaces';
 
@@ -24,7 +25,12 @@ export class FileUploadService {
           'x-token': localStorage.getItem('token')||''
         }
 
-      })
+      }).pipe(
+        map(resp => {
+          console.log(resp)
+          return resp
+        })
+      )
 
   }
 
