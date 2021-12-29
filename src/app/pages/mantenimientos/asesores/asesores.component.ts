@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Asesor } from 'src/app/models/asesor.model';
+import { AsesorService } from 'src/app/services/asesor.service';
 
 @Component({
   selector: 'app-asesores',
@@ -8,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AsesoresComponent implements OnInit {
 
-  constructor() { }
+  public asesores: Asesor[] = [];
+  public cargando: boolean = true;
+
+  constructor(private asesorService: AsesorService) { }
 
   ngOnInit(): void {
+    this.cargarAsesores();
+  }
+
+  cargarAsesores() {
+    this.cargando = true;
+    this.asesorService.cargarAsesores().subscribe( asesores => {
+      this.cargando = false;
+      this.asesores = asesores;
+    })
   }
 
 }
