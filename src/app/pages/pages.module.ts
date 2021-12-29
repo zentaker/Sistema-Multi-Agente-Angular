@@ -20,6 +20,8 @@ import { BeneficiosComponent } from './mantenimientos/beneficios/beneficios.comp
 import { CoberturasComponent } from './mantenimientos/coberturas/coberturas.component';
 import { AsesoresComponent } from './mantenimientos/asesores/asesores.component';
 import { PipesModule } from '../pipes/pipes.module';
+import { PolizaComponent } from './mantenimientos/polizas/poliza.component';
+
 
 
 @NgModule({
@@ -37,6 +39,8 @@ import { PipesModule } from '../pipes/pipes.module';
     BeneficiosComponent,
     CoberturasComponent,
     AsesoresComponent,
+    PolizaComponent,
+
   ],
   exports: [
     DasboardComponent,
