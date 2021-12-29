@@ -26,8 +26,15 @@ export class BusquedasService {
     }
   }
 
+  private transformarPolizas( resultados: any[] ): Usuario[] {
+
+    return resultados.map(
+      user => new Usuario(user.nombre, user.email, '', user.img, user.google, user.role, user.uid )
+    );
+  }
+
   buscar(
-    tipo: 'usuarios'|'medicos'|'hospitales',
+    tipo: 'usuarios'|'medicos'|'polizas',
     termino: string =''
   ) {
 
@@ -38,7 +45,9 @@ export class BusquedasService {
 
               switch ( tipo ) {
                 case 'usuarios':
-                  return this.transformarUsuarios( resp.resultado )
+                  return this.transformarUsuarios( resp.resultado );
+                case 'polizas':
+                  return this.transformarPolizas( resp.resultado )
 
                 default:
                   return [];
@@ -55,4 +64,6 @@ private transformarUsuarios( resultados: any[] ): Usuario[] {
     user => new Usuario(user.nombre, user.email, '', user.img, user.google, user.role, user.uid )
   );
 }
+
+
 }

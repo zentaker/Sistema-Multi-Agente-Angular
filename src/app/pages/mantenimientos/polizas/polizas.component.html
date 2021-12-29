@@ -5,7 +5,8 @@
       <div class="card-body">
         <input type="text"
         class="form-control"
-        placeholder="buscar Polizas">
+        placeholder="buscar Polizas"
+        >
       </div>
     </div>
   </div>
@@ -49,7 +50,7 @@
                             <td>{{poliza.bienAsegurado}}</td>
                             <td>{{poliza.valorAsegurado}}</td>
                             <td class="text-nowrap">
-                              <a href="#" data-toggle="tooltip" data-original-title="Editar"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                              <a [routerLink]="['/dashboard/poliza', poliza._id]" data-toggle="tooltip" data-original-title="Editar"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
                               <a href="#" data-toggle="tooltip" data-original-title="Borrar"> <i class="fa fa-close text-danger"></i> </a>
                           </td>
                         </tr>

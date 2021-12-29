@@ -4,6 +4,7 @@ import { Cobertura } from "./cobertura.model";
 interface _PolizaUser {
   _id: string;
   nombre: string;
+  email: string
   img: string;
 
 }

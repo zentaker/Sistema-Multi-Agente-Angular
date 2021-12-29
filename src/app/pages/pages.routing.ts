@@ -33,7 +33,7 @@ import { PolizaComponent } from "./mantenimientos/polizas/poliza.component";
       //mantenimientos
       { path: 'usuarios', component: UsuariosComponent, data: {title: 'Usuarios de la aplicacion'} },
       { path: 'polizas', component: PolizasComponent, data: {title: 'Mantenimiento de Polizas'} },
-      { path: 'polizas/:id', component: PolizaComponent, data: {title: 'Mantenimiento de Polizas'} },
+      { path: 'poliza/:id', component: PolizaComponent, data: {title: 'Mantenimiento de Polizas'} },
       { path: 'asesores', component: AsesoresComponent, data: {title: 'Mantenimiento de Asesores'} },
 
     ],

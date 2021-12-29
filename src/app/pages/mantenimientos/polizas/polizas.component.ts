@@ -13,7 +13,7 @@ export class PolizasComponent implements OnInit {
   public cargando: boolean = true;
   public polizas: Poliza[] = [];
 
-  constructor(private polizaService: PolizaService) { }
+  constructor(private polizaService: PolizaService,) { }
 
   ngOnInit(): void {
     this.cargarPolizas();
@@ -28,5 +28,6 @@ export class PolizasComponent implements OnInit {
     });
 
   }
+
 
 }
