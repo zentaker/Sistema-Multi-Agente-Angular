@@ -40,10 +40,10 @@ export class AsesorService {
     //tambien se puede crear una interfase
     return this.http.post(url,{asesor}, this.headers);
   }
-  actualizarAsesores( _id: string, asesor: Asesor) {
+  actualizarAsesores( _id: string, nombre: string, celular: string, correo: string) {
     const url = `${base_url}/asesores/${_id}`;
     //tambien se puede crear una interfase
-    return this.http.put(url,{asesor}, this.headers);
+    return this.http.put(url,{nombre, celular, correo}, this.headers);
   }
   eliminarAsesores( _id: string) {
     const url = `${base_url}/asesores/${_id}`;

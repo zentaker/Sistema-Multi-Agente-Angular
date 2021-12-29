@@ -69,8 +69,8 @@
                               [(ngModel)]="asesor.correo">
                             </td>
                             <td class="text-nowrap text-center">
-                              <a href="#" data-toggle="tooltip" data-original-title="Guardar"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
-                              <a href="#" data-toggle="tooltip" data-original-title="Borrar"> <i class="fa fa-close text-danger"></i> </a>
+                              <a class="cursor" (click)="guardarCambios(asesor)" data-toggle="tooltip" data-original-title="Guardar"> <i class="fa fa-save text-inverse m-r-10"></i> </a>
+                              <a class="cursor" (click)="eliminarAsesor(asesor)" data-toggle="tooltip" data-original-title="Borrar"> <i class="fa fa-close text-danger"></i> </a>
                           </td>
                         </tr>
 
