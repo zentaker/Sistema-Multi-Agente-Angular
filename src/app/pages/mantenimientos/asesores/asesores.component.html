@@ -31,7 +31,7 @@
                 <table class="table">
                     <thead >
                         <tr>
-                            <th></th>
+                            <th>Img</th>
                             <th>Nombre</th>
                             <th>Celular</th>
                             <th>Correo</th>
@@ -41,7 +41,7 @@
                     <tbody>
                         <tr *ngFor="let asesor of asesores">
 
-                            <td>{{asesor.img}}</td>
+                            <td><img class="avatar" src="{{asesor.img | imagen:'asesores'}}" alt=""></td>
                             <td><input type="text"
                                       class="form-control"
                                       placeholder="Nombre Asesor"
