@@ -10,6 +10,7 @@ const base_url = environment.base_url;
   providedIn: 'root'
 })
 export class AsesorService {
+  private asesor: Asesor;
 
 
   constructor(private http: HttpClient) { }
@@ -33,9 +34,20 @@ export class AsesorService {
     return this.http.get(url, this.headers).pipe(
       map( (resp: {ok: boolean, asesores: Asesor[]}) => resp.asesores)
     )
-
-
-    //return this.http.get<{total:number, usuarios:Usuario[]}>(url, this.headers);
-
+  }
+  crearAsesores(asesor: Asesor) {
+    const url = `${base_url}/asesores`;
+    //tambien se puede crear una interfase
+    return this.http.post(url,{asesor}, this.headers);
+  }
+  actualizarAsesores( _id: string, asesor: Asesor) {
+    const url = `${base_url}/asesores/${_id}`;
+    //tambien se puede crear una interfase
+    return this.http.put(url,{asesor}, this.headers);
+  }
+  eliminarAsesores( _id: string) {
+    const url = `${base_url}/asesores/${_id}`;
+    //tambien se puede crear una interfase
+    return this.http.delete(url, this.headers);
   }
 }
