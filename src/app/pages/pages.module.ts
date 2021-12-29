@@ -19,6 +19,7 @@ import { PolizasComponent } from './mantenimientos/polizas/polizas.component';
 import { BeneficiosComponent } from './mantenimientos/beneficios/beneficios.component';
 import { CoberturasComponent } from './mantenimientos/coberturas/coberturas.component';
 import { AsesoresComponent } from './mantenimientos/asesores/asesores.component';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { AsesoresComponent } from './mantenimientos/asesores/asesores.component'
     FormsModule,
     ComponentsModule,
     ChartsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PipesModule
 
   ],
 })
