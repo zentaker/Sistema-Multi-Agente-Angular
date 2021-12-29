@@ -1,1 +1,68 @@
-<p>polizas works!</p>
+<div class="row animated fadeIn fast"
+      >
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <input type="text"
+        class="form-control"
+        placeholder="buscar Polizas">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row animated fadeIn fast" *ngIf="cargando">
+  <div class="col-12">
+    <div class="alert alert-info text-center">
+      <h4 class="alert-heading">Cargando</h4>
+      <i class="fa fa-spin fa-refresh fa-2x"></i>
+      <p class="mb-0">Por faavor espere</p>
+    </div>
+  </div>
+</div>
+
+<div class="row  animated fadeIn fast" *ngIf="!cargando">
+  <div class="col-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Polizas </h4>
+            <h6 class="card-subtitle">Polizas registrados en el sistema </h6>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>tipo</th>
+                            <th>Numero</th>
+                            <th>Bien Asegurado</th>
+                            <th>Valor</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let poliza of polizas">
+                            <td>{{poliza.nombre}}</td>
+                            <td>
+                              <span *ngIf="poliza.oferta" class="label label-danger">Oferta</span>
+                              <span  *ngIf="!poliza.oferta"  class="label label-info">Poliza</span>
+                            </td>
+                            <td>{{poliza.numeroPoliza}} </td>
+                            <td>{{poliza.bienAsegurado}}</td>
+                            <td>{{poliza.valorAsegurado}}</td>
+                            <td class="text-nowrap">
+                              <a href="#" data-toggle="tooltip" data-original-title="Editar"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                              <a href="#" data-toggle="tooltip" data-original-title="Borrar"> <i class="fa fa-close text-danger"></i> </a>
+                          </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+     <!--        <button class="btn btn-secondary">Anterior</button>
+            &nbsp;
+            <button class="btn btn-secondary">Siguiente</button> -->
+
+        </div>
+    </div>
+</div>
+</div>
+

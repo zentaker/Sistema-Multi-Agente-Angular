@@ -14,6 +14,7 @@ import { PerfilComponent } from "./perfil/perfil.component";
 import { UsuariosComponent } from "./mantenimientos/usuarios/usuarios.component";
 import { AsesoresComponent } from "./mantenimientos/asesores/asesores.component";
 import { PolizasComponent } from "./mantenimientos/polizas/polizas.component";
+import { PolizaComponent } from "./mantenimientos/polizas/poliza.component";
 
  const routes: Routes = [
   {
@@ -32,7 +33,7 @@ import { PolizasComponent } from "./mantenimientos/polizas/polizas.component";
       //mantenimientos
       { path: 'usuarios', component: UsuariosComponent, data: {title: 'Usuarios de la aplicacion'} },
       { path: 'polizas', component: PolizasComponent, data: {title: 'Mantenimiento de Polizas'} },
-      { path: 'polizas/:id', component: PolizasComponent, data: {title: 'Mantenimiento de Polizas'} },
+      { path: 'polizas/:id', component: PolizaComponent, data: {title: 'Mantenimiento de Polizas'} },
       { path: 'asesores', component: AsesoresComponent, data: {title: 'Mantenimiento de Asesores'} },
 
     ],
