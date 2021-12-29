@@ -9,7 +9,8 @@
     </div>
   </div>
 </div>
-<div class="row animated fadeIn fast">
+<div class="row animated fadeIn fast"
+*ngIf="cargando">
   <div class="col-12">
     <div class="alert alert-info text-center">
       <h4 class="alert-heading">Cargando</h4>
@@ -19,17 +20,18 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row"
+      *ngIf="!cargando">
   <div class="col-12">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Usuarios </h4>
+            <h4 class="card-title">Asesores ({{asesores.length}})</h4>
             <h6 class="card-subtitle">Usuarios registrados en el sistema </h6>
             <div class="table-responsive">
                 <table class="table">
-                    <thead>
+                    <thead >
                         <tr>
-                            <th>Foto</th>
+                            <th></th>
                             <th>Nombre</th>
                             <th>Celular</th>
                             <th>Correo</th>
@@ -37,22 +39,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr *ngFor="let asesor of asesores">
 
-                            <td>Img</td>
+                            <td>{{asesor.img}}</td>
                             <td><input type="text"
                                       class="form-control"
-                                      placeholder="Nombre Asesor"> </td>
-                            <td><input type="number"
+                                      placeholder="Nombre Asesor"
+                                      [(ngModel)]="asesor.nombre"> </td>
+                            <td><input type="text"
                               class="form-control"
-                              placeholder="celular"></td>
+                              placeholder="celular"
+                              [(ngModel)]="asesor.celular"></td>
                             <td>
                               <input type="text"
                               class="form-control"
-                              placeholder="Correo">
+                              placeholder="Correo"
+                              [(ngModel)]="asesor.correo">
                             </td>
                             <td class="text-nowrap text-center">
-                              <a href="#" data-toggle="tooltip" data-original-title="Editar"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                              <a href="#" data-toggle="tooltip" data-original-title="Guardar"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
                               <a href="#" data-toggle="tooltip" data-original-title="Borrar"> <i class="fa fa-close text-danger"></i> </a>
                           </td>
                         </tr>
@@ -60,9 +65,9 @@
                     </tbody>
                 </table>
             </div>
-            <button class="btn btn-secondary">Anterior</button>
+ <!--            <button class="btn btn-secondary">Anterior</button>
             &nbsp;
-            <button class="btn btn-secondary">Siguiente</button>
+            <button class="btn btn-secondary">Siguiente</button> -->
 
         </div>
     </div>
