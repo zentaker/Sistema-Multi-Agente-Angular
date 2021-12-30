@@ -15,6 +15,9 @@
 .w140{
   width: 140px;
 }
+.w500{
+  width: 500px;
+}
 .avatar {
   width: 50px;
   border-radius: 100%;
