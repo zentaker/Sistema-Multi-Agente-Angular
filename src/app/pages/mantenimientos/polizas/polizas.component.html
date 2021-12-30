@@ -25,8 +25,18 @@
   <div class="col-12">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Polizas </h4>
-            <h6 class="card-subtitle">Polizas registrados en el sistema </h6>
+          <div class="row">
+            <div class="col-8">
+              <h4 class="card-title">Polizas ({{polizas.length}})</h4>
+              <h6 class="card-subtitle">Polizas registrados en el sistema </h6>
+
+
+            </div>
+            <div class="col">
+              <div class="text-right"><a  routerLink="/dashboard/poliza/nuevo"   class="btn btn-primary">Crear Poliza</a></div>
+
+            </div>
+          </div>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -51,7 +61,7 @@
                             <td>{{poliza.valorAsegurado}}</td>
                             <td class="text-nowrap">
                               <a [routerLink]="['/dashboard/poliza', poliza._id]" data-toggle="tooltip" data-original-title="Editar"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
-                              <a href="#" data-toggle="tooltip" data-original-title="Borrar"> <i class="fa fa-close text-danger"></i> </a>
+                              <a class="cursor" (click)="borrarPoliza(poliza)" data-toggle="tooltip" data-original-title="Borrar"> <i class="fa fa-close text-danger"></i> </a>
                           </td>
                         </tr>
 

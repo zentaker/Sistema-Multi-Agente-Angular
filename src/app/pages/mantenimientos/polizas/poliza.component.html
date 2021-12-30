@@ -1,1 +1,178 @@
-<p>poliza works!</p>
+<div class="col-lg-12">
+  <div class="card ">
+      <div class="card-header bg-info">
+          <h4 class="m-b-0 text-white">Editor de Polizas</h4>
+      </div>
+      <div class="card-body">
+          <form action="#" class="form-horizontal" [formGroup]="polizaForm">
+              <div class="form-body">
+                  <h3 class="box-title">Informacion</h3>
+                  <hr class="m-t-0 m-b-40">
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="form-group row">
+                              <label class="control-label text-right col-md-3">Nombre</label>
+                              <div class="col-md-9">
+                                  <input type="text"
+                                  class="form-control"
+                                  placeholder="John doe"
+                                  formControlName="nombre">
+
+
+                                </div>
+                          </div>
+                      </div>
+                      <!--/span-->
+                      <div class="col-md-6">
+                          <div class="form-group  row">
+                              <label class="control-label text-right col-md-3">Numero de Poliza</label>
+                              <div class="col-md-9">
+                                  <input type="text"
+                                  class="form-control "
+                                  placeholder="12n">
+
+
+                                </div>
+                          </div>
+                      </div>
+                      <!--/span-->
+                  </div>
+                  <!--/row-->
+                  <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Producto</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" placeholder="John doe">
+
+
+                              </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                    <div class="col-md-6">
+                        <div class="form-group  row">
+                            <label class="control-label text-right col-md-3">Bien Asegurado</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control " placeholder="12n">
+
+
+                              </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group row">
+                          <label class="control-label text-right col-md-3">Valor asegurado</label>
+                          <div class="col-md-9">
+                              <input type="text" class="form-control" placeholder="John doe">
+
+
+                            </div>
+                      </div>
+                  </div>
+                  <!--/span-->
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="control-label text-right col-md-3">Category</label>
+                        <div class="col-md-9">
+                            <select class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
+                                <option value="Category 1">Category 1</option>
+                                <option value="Category 2">Category 2</option>
+                                <option value="Category 3">Category 5</option>
+                                <option value="Category 4">Category 4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                  <!--/span-->
+              </div>
+                  <!--/row-->
+
+                  <h3 class="box-title">Beneficios</h3>
+                  <hr class="m-t-0 m-b-40">
+                  <!--/row-->
+
+
+                  <div class="form-group row">
+                    <label class="control-label text-right col-md-2">Category</label>
+                    <div class="col-md-9">
+                      <table class="">
+
+                        <tbody >
+                            <tr >
+
+                                <td>
+
+                                  <select class="form-control col-md-9 custom-select" data-placeholder="Choose a Category" tabindex="1">
+                                      <option value="Category 1">Category 1</option>
+                                      <option value="Category 2">Category 2</option>
+                                      <option value="Category 3">Category 5</option>
+                                      <option value="Category 4">Category 4</option>
+                                  </select></td>
+                                <td> <button type="button" class="btn btn-danger"
+                                        >eliminar</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+
+
+
+
+                    </div>
+                </div>
+                  <div class="row">
+                    <div class="col">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>pasatiempo</th>
+                                    <th>Borrar</th>
+                                </tr>
+                            </thead>
+                            <tbody >
+                                <tr >
+                                    <td> </td>
+                                    <td> <input class="form-control" type="text" ></td>
+                                    <td> <button type="button" class="btn btn-danger"
+                                            >eliminar</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-dark" type="button" >+ Agregar</button>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+                  <!--/row-->
+              </div>
+              <hr>
+              <div class="form-actions">
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="row">
+                              <div class="col-md-offset-3 col-md-9">
+                                  <button type="submit" class="btn btn-success">Submit</button>
+                                  <button type="button" class="btn btn-inverse">Cancel</button>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-6"> </div>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
