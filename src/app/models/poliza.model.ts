@@ -1,3 +1,4 @@
+import { Asesor } from "./asesor.model";
 import { Beneficio } from "./beneficio.model";
 import { Cobertura } from "./cobertura.model";
 
@@ -17,9 +18,10 @@ export class Poliza {
     public producto: string,
     public bienAsegurado: string,
     public valorAsegurado: string,
-    public beneficio?: Beneficio,
-    public cobertura?: Cobertura,
+    public beneficios?: Beneficio,
+    public coberturas?: Cobertura,
     public usuario?: _PolizaUser,
+    public asesor?: Asesor,
     public _id?: string,
     public img?: string,
 

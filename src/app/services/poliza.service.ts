@@ -33,6 +33,14 @@ export class PolizaService {
       map( (resp: {ok: boolean, polizas: Poliza[]}) => resp.polizas)
     )
   }
+  obtenerPolizaPorId(id: string) {
+    const url = `${base_url}/polizas/${id}`;
+    //tambien se puede crear una interfase
+    return this.http.get(url, this.headers).pipe(
+      map( (resp: {ok: boolean, polizas: Poliza}) => resp.polizas)
+    )
+
+  }
   crearPolizas(poliza: Poliza) {
     const url = `${base_url}/polizas`;
     //tambien se puede crear una interfase
