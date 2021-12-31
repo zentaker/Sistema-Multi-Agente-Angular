@@ -15,6 +15,7 @@ import { UsuariosComponent } from "./mantenimientos/usuarios/usuarios.component"
 import { AsesoresComponent } from "./mantenimientos/asesores/asesores.component";
 import { PolizasComponent } from "./mantenimientos/polizas/polizas.component";
 import { PolizaComponent } from "./mantenimientos/polizas/poliza.component";
+import { AdminGuard } from "../guards/admin.guard";
 
  const routes: Routes = [
   {
@@ -31,10 +32,13 @@ import { PolizaComponent } from "./mantenimientos/polizas/poliza.component";
       { path: 'perfil', component: PerfilComponent, data: {title: 'Perfil de Usuario'} },
 
       //mantenimientos
-      { path: 'usuarios', component: UsuariosComponent, data: {title: 'Usuarios de la aplicacion'} },
       { path: 'polizas', component: PolizasComponent, data: {title: 'Mantenimiento de Polizas'} },
       { path: 'poliza/:id', component: PolizaComponent, data: {title: 'Mantenimiento de Polizas'} },
       { path: 'asesores', component: AsesoresComponent, data: {title: 'Mantenimiento de Asesores'} },
+
+      //rutas de admin
+      { path: 'usuarios', canActivate:[AdminGuard], component: UsuariosComponent, data: {title: 'Usuarios de la aplicacion'} },
+
 
     ],
   },

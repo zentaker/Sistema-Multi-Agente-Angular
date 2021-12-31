@@ -32,6 +32,10 @@ export class UsuarioService {
     return localStorage.getItem('token')|| '';
 
   }
+  get rol(): 'ADMIN_ROLE'| 'USER_ROLE' {
+    return this.usuario.role;
+
+  }
   get uid(): string {
     return this.usuario?.uid || '';
   }
@@ -57,8 +61,16 @@ export class UsuarioService {
 
     });
   }
+  guardarLocalStorage(token: string, menu: any){
+    localStorage.setItem('token', token);
+      localStorage.setItem('menu', JSON.stringify(menu));
+
+  }
+
 
   logout() {
+
+    localStorage.removeItem('menu');
     localStorage.removeItem('token');
 
     this.auth2.signOut().then(()=> {
@@ -90,7 +102,7 @@ export class UsuarioService {
 
       //llamar a un metodo de un modelo
       //this.usuario.imprimirUsuario();
-      localStorage.setItem('token', resp.token);
+      this.guardarLocalStorage(resp.token, resp.menu);
       return true;
 
       //atrapa el error y regresa un nuevo obserbable con false para que no pase la autentificacion
@@ -101,7 +113,9 @@ export class UsuarioService {
 
     return this.http.post(`${base_url}/usuarios`, formData).pipe(
       map((resp: any) =>{
-        localStorage.setItem('token', resp.token)
+        this.guardarLocalStorage(resp.token, resp.menu);
+
+
         console.log(resp);
         return resp.usuario
       })
@@ -121,7 +135,8 @@ export class UsuarioService {
 
     return this.http.post(`${base_url}/login`, formData).pipe(
       map((resp: any) =>{
-        localStorage.setItem('token', resp.token)
+        this.guardarLocalStorage(resp.token, resp.menu);
+
         console.log(resp);
         return resp.usuario
       })
@@ -132,7 +147,7 @@ export class UsuarioService {
 
     return this.http.post(`${base_url}/login/google`, {token}).pipe(
       map((resp: any) =>{
-        localStorage.setItem('token', resp.token)
+        this.guardarLocalStorage(resp.token, resp.menu);
         console.log(resp);
         return resp.usuario
       })
