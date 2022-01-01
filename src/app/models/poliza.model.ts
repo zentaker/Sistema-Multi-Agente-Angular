@@ -23,7 +23,9 @@ export class Poliza {
     public usuario?: _PolizaUser,
     public asesor?: Asesor,
     public _id?: string,
-    public img?: string,
+    public logo?: string,
+    public color1?: string,
+    public color2?: string
 
   ){}
 }

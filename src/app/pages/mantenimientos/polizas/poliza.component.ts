@@ -69,6 +69,8 @@ export class PolizaComponent implements OnInit {
       bienAsegurado: ['', Validators.required],
       valorAsegurado: ['', Validators.required],
       logo: [''],
+      color1: [''],
+      color2: [''],
       oferta: [false, Validators.required],
       usuario: ['', Validators.required],
       asesor: ['', Validators.required],
@@ -89,23 +91,27 @@ export class PolizaComponent implements OnInit {
       if(!poliza) {
         return this.router.navigateByUrl(`/dashboard/polizas`);
       }
-      let {nombre,numeroPoliza, producto,bienAsegurado, valorAsegurado,oferta, ...otras  } = poliza
+      let {nombre,numeroPoliza,logo, producto,bienAsegurado, valorAsegurado,oferta,color1,color2, ...otras  } = poliza
 
-      //console.log(poliza.beneficio)
-      const logo = '';
+
+      //const logo = '';
       this.polizaSelecionado = poliza;
       this.polizaForm.reset({
         nombre,
         numeroPoliza,
         producto,
         bienAsegurado,
+        color1,
+        color2,
+        logo,
         valorAsegurado,
         oferta,
         usuario: otras.usuario._id,
-        asesor:otras.asesor._id,
-        logo
+        asesor: otras.asesor._id,
+
+
       });
-      console.log(Object.values(otras.beneficios));
+      //console.log(Object.values(otras.beneficios));
 
       this.arrbeneficios = Object.values(otras.coberturas);
 
@@ -196,8 +202,8 @@ export class PolizaComponent implements OnInit {
         this.router.navigateByUrl(`/dashboard/poliza/${resp.poliza._id}`);
       // forzar actualizar el dom actualizar el dom
       //window.location.reload();
-      //this.arrbeneficios.pop();
-      //this.arrCobertura.pop();
+      this.arrbeneficios.pop();
+      this.arrCobertura.pop();
     })
   }
   }
