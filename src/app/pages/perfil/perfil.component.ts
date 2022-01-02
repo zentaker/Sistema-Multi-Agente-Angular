@@ -14,7 +14,7 @@ export class PerfilComponent implements OnInit {
   public perfilForm!: FormGroup;
   public nombre:any = '';
   public email:any = '';
-  public id:any ='';
+  public _id:any ='';
   public imagenSubir!: File;
   public imgUrl:any = '';
   public imgTemp: any = '';
@@ -26,7 +26,7 @@ export class PerfilComponent implements OnInit {
               private fileUploadService: FileUploadService) {
     this.nombre = usuarioService.usuario?.nombre;
     this.email = usuarioService.usuario?.email;
-    this.id = usuarioService.usuario?.uid;
+    this._id = usuarioService.usuario?.uid;
     this.imgUrl = usuarioService.usuario?.imagenUrl;
     this.google = usuarioService.usuario?.google;
 
@@ -85,7 +85,7 @@ export class PerfilComponent implements OnInit {
   subirImagen() {
 
 
-    this.fileUploadService.actualizarFoto(this.imagenSubir,'usuarios',this.id).subscribe(
+    this.fileUploadService.actualizarFoto(this.imagenSubir,'usuarios',this._id).subscribe(
       resp => {
         console.log(resp)
         Swal.fire({

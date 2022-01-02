@@ -72,8 +72,8 @@ export class PolizaComponent implements OnInit {
       color1: [''],
       color2: [''],
       oferta: [false, Validators.required],
-      usuario: ['', Validators.required],
-      asesor: ['', Validators.required],
+      usuario: ['' ],
+      asesor: [''],
       beneficios: this.fb.array([ ]),
       coberturas: this.fb.array([])
 
@@ -93,6 +93,7 @@ export class PolizaComponent implements OnInit {
       }
       let {nombre,numeroPoliza,logo, producto,bienAsegurado, valorAsegurado,oferta,color1,color2, ...otras  } = poliza
 
+      console.log(poliza);
 
       //const logo = '';
       this.polizaSelecionado = poliza;
@@ -139,7 +140,7 @@ export class PolizaComponent implements OnInit {
   cargarUsuarios() {
     this.usuarioService.cargarUsuarios(0).subscribe(({total, usuarios}) => {
       this.usuarios = usuarios;
-      //console.log(usuarios)
+      console.log(usuarios)
     })
   }
 
@@ -182,6 +183,7 @@ export class PolizaComponent implements OnInit {
 
   guardarPoliza() {
     const {nombre} =this.polizaForm.value;
+    console.log(this.polizaForm.value)
 
     if (this.polizaSelecionado) {
       // actualizar
@@ -195,6 +197,7 @@ export class PolizaComponent implements OnInit {
       })
     } else {
       //crear
+      console.log(this.polizaForm.value);
 
       this.polizaServices.crearPolizas(this.polizaForm.value).subscribe( (resp: any) => {
         console.log(resp)

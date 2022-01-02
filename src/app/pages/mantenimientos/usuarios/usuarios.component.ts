@@ -18,11 +18,15 @@ export class UsuariosComponent implements OnInit {
   public usuariosTemp: Usuario[] = [];
   public desde: number =0;
   public cargando: boolean = true;
+  public imgUrl = '';
 
 
   constructor(private usuarioService: UsuarioService,
               private busquedasService: BusquedasService,
-              private modalImagenService: ModalImagenService) { }
+              private modalImagenService: ModalImagenService) {
+                this.imgUrl = usuarioService.usuario.imagenUrl;
+                console.log(this.imgUrl)
+               }
 
   ngOnInit(): void {
     this.cargarUsuarios();
@@ -31,6 +35,7 @@ export class UsuariosComponent implements OnInit {
   cargarUsuarios() {
     this.cargando = true;
     this.usuarioService.cargarUsuarios(this.desde).subscribe(({total, usuarios}) => {
+      console.log()
       this.totalUsuarios = total;
       this.usuarios = usuarios;
       this.usuariosTemp = usuarios;

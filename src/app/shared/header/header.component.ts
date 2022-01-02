@@ -25,6 +25,7 @@ export class HeaderComponent  {
 
   constructor(private usuarioService: UsuarioService) {
     this.imgUrl = usuarioService.usuario?.imagenUrl;
+    console.log(this.imgUrl)
     this.nombre = usuarioService.usuario?.nombre;
     this.email = usuarioService.usuario?.email;
 

@@ -9,7 +9,7 @@ const base_url = environment.base_url;
 export class ModalImagenService {
   private _ocultarModal: boolean = true; //es un estandar poner _ cuando es una propiedad privada
   public tipo!: 'usuarios' | 'asesores' | 'polizas';
-  public id: string;
+  public _id: string;
   public img?: string;
 
   public nuevaImagen: EventEmitter<string> = new EventEmitter<string>();
@@ -17,10 +17,10 @@ export class ModalImagenService {
   get ocultarModal(){
     return this._ocultarModal;
   }
-  abrirModal(tipo: 'usuarios'|'asesores'|'polizas', id?:string, img?: string) {
+  abrirModal(tipo: 'usuarios'|'asesores'|'polizas', _id?:string, img?: string) {
     this._ocultarModal = false
     this.tipo = tipo;
-    this.id = id;
+    this._id = _id;
     this.img = img;
     if(img?.includes('https')){
       this.img = img;

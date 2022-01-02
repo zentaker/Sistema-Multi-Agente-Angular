@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { catchError, delay, map } from 'rxjs/operators';
+import { catchError, delay, map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { cargarUsuario } from '../interfaces/cargar-usuarios.interfaces';
 import { LoginForm } from '../interfaces/login-forminterfaces';
@@ -32,7 +32,7 @@ export class UsuarioService {
     return localStorage.getItem('token')|| '';
 
   }
-  get rol(): 'ADMIN_ROLE'| 'USER_ROLE' {
+  get rol(): 'ADMIN_ROLE'| 'USER_ROLE'|'DEV_ROLE' |'BROKER_ROLE' {
     return this.usuario.role;
 
   }
@@ -90,22 +90,26 @@ export class UsuarioService {
       headers: {
         'x-token': this.token
       }
-    }).pipe( map((resp:any)=> {
+    }).pipe( tap((resp:any)=> {
+      this.guardarLocalStorage(resp.token, resp.menu);
+
+
+      //atrapa el error y regresa un nuevo obserbable con false para que no pase la autentificacion
+    }), map( resp=> {
+
 
       //centralizar la informacion de los usuarios
       console.log(resp);
       //destructuring del objeto usuario
-      const {email, google, nombre, role,img='', uid} = resp.usuario;
+      const {email, google, nombre, role,img='', _id} = resp.usuario;
 
       //creacion de la instancia
-      this.usuario = new Usuario(nombre,email, '', img , google, role, uid)
+      this.usuario = new Usuario(nombre,email, '', img , google, role, _id)
 
       //llamar a un metodo de un modelo
       //this.usuario.imprimirUsuario();
       this.guardarLocalStorage(resp.token, resp.menu);
       return true;
-
-      //atrapa el error y regresa un nuevo obserbable con false para que no pase la autentificacion
     }), catchError(error => of(false)))
   }
 
@@ -160,9 +164,11 @@ export class UsuarioService {
     return this.http.get<cargarUsuario>(url, this.headers).pipe(
       //para retrasar la carga
       //delay(1000),
-      map(resp => {
+      tap(resp => {
+        console.log(resp.usuarios)
+
         const usuarios = resp.usuarios.map(
-          user=> new Usuario(user.nombre, user.email,'', user.img, user.google, user.role,user.uid ))
+          user=> new Usuario(user.uid ,user.nombre, user.email,'', user.google,  user.role, user.leed, user.img,))
         return {
           total: resp.total,
           usuarios

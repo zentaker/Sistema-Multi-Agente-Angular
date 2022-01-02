@@ -12,15 +12,20 @@ export class Usuario {
     public password?: string,
     public img?: string,
     public google?: boolean,
-    public role?: 'ADMIN_ROLE'| 'USER_ROLE',
-    public uid?: string
+    public role?: 'ADMIN_ROLE'| 'USER_ROLE'| 'DEV_ROLE' | 'BROKER_ROLE',
+    public leed?: string,
+    public uid?: string,
+
   ) {}
 
   get imagenUrl() {
+    console.log(this.img)
     if(!this.img) {
+
+
       return `${base_url}/upload/usuarios/no-img-user`;
 
-    }else if (this.img?.includes('http')) {
+    }else if (this.img?.includes('https')) {
       return this.img;
     }else if(this.img){
       return `${base_url}/upload/usuarios/${this.img}`;

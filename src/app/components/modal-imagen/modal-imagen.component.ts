@@ -13,7 +13,7 @@ export class ModalImagenComponent implements OnInit {
 
   public nombre:any = '';
   public email:any = '';
-  public id:any ='';
+  public _id:any ='';
   public imagenSubir!: File;
   public imgUrl:any = '';
   public imgTemp: any = '';
@@ -50,11 +50,11 @@ export class ModalImagenComponent implements OnInit {
 
   }
   subirImagen() {
-    const id = this.modalImagenService.id;
+    const _id = this.modalImagenService._id;
     const tipo = this.modalImagenService.tipo;
 
 
-    this.fileUploadService.actualizarFoto(this.imagenSubir,tipo, id).subscribe(
+    this.fileUploadService.actualizarFoto(this.imagenSubir,tipo, _id).subscribe(
       resp => {
         console.log(resp)
         this.cerrarModal();

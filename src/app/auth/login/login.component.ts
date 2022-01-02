@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit  {
     {
       email: new FormControl(localStorage.getItem('email')|| '', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required,]),
-      remember: new FormControl(false)
+      remember: new FormControl(false),
     } );
 
 
@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit  {
 
 
   login() {
+
     this.usuarioService.login(this.LoginForm.value).subscribe( resp => {
       if(this.LoginForm.get('remember')?.value){
         //quiere que recordemos su cuenta
@@ -46,6 +47,7 @@ export class LoginComponent implements OnInit  {
 
        //mover al dasboard
        this.router.navigateByUrl('/')
+       console.log(this.LoginForm.value);
     }, (err) => {
       //si sucede un error
       Swal.fire('Error', err.error.msg, 'error')
@@ -84,9 +86,10 @@ export class LoginComponent implements OnInit  {
     this.auth2.attachClickHandler(element, {},
         (googleUser:any)=> {
            const id_token = googleUser.getAuthResponse().id_token;
-           //console.log(id_token);
+          console.log(id_token);
            this.usuarioService.loginGoogle(id_token).subscribe(resp => {
              //para que angular no pierda el control del ciclo de vida
+             console.log(resp);
              this.ngZone.run( ()=> {
                  //mover al dasboard
            this.router.navigateByUrl('/')

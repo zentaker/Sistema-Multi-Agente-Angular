@@ -60,7 +60,8 @@ export class RegisterComponent {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required,]),
       password2: new FormControl('', [Validators.required]),
-      terminos: new FormControl(false, Validators.requiredTrue)
+      terminos: new FormControl(false, Validators.requiredTrue),
+      leed: new FormControl('Prudenza Cloud Service')
     }, {
     validators: validarPassword
   }  );
@@ -72,6 +73,7 @@ export class RegisterComponent {
   //metodo para capturar la informacion
   crearUsuario() {
     this.formSubmitted = true;
+
     console.log(this.registerForm.value);
 
 
