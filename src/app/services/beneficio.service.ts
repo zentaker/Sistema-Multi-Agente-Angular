@@ -9,6 +9,7 @@ const base_url = environment.base_url;
   providedIn: 'root'
 })
 export class BeneficioService {
+  private beneficio: Beneficio;
 
 
   get token(): string {
@@ -33,4 +34,26 @@ export class BeneficioService {
       map( (resp: {ok: boolean, beneficios: Beneficio[]}) => resp.beneficios)
     )
   }
+  crearBeneficio(beneficio: Beneficio) {
+    const url = `${base_url}/beneficios`;
+    //tambien se puede crear una interfase
+    return this.http.post(url,{beneficio}, this.headers);
+  }
+
+  actualizarBeneficio( _id: string, nombre: string, detalle: string) {
+    const url = `${base_url}/beneficios/${_id}`;
+    //tambien se puede crear una interfase
+    return this.http.put(url,{nombre, detalle}, this.headers);
+  }
+  eliminarbeneficio( _id: string) {
+    const url = `${base_url}/beneficios/${_id}`;
+    //tambien se puede crear una interfase
+    return this.http.delete(url, this.headers);
+  }
+
+
+
+
+
+
 }

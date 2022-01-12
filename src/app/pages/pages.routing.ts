@@ -16,6 +16,8 @@ import { AsesoresComponent } from "./mantenimientos/asesores/asesores.component"
 import { PolizasComponent } from "./mantenimientos/polizas/polizas.component";
 import { PolizaComponent } from "./mantenimientos/polizas/poliza.component";
 import { AdminGuard } from "../guards/admin.guard";
+import { BeneficiosComponent } from "./mantenimientos/beneficios/beneficios.component";
+import { CoberturasComponent } from "./mantenimientos/coberturas/coberturas.component";
 
  const routes: Routes = [
   {
@@ -35,6 +37,9 @@ import { AdminGuard } from "../guards/admin.guard";
       { path: 'polizas', component: PolizasComponent, data: {title: 'Mantenimiento de Polizas'} },
       { path: 'poliza/:id', component: PolizaComponent, data: {title: 'Mantenimiento de Polizas'} },
       { path: 'asesores', component: AsesoresComponent, data: {title: 'Mantenimiento de Asesores'} },
+      { path: 'beneficios', component: BeneficiosComponent, data: {title: 'Mantenimiento de beneficios'} },
+      { path: 'coberturas', component: CoberturasComponent, data: {title: 'Mantenimiento de Asesores'} },
+
 
       //rutas de admin
       { path: 'usuarios', canActivate:[AdminGuard], component: UsuariosComponent, data: {title: 'Usuarios de la aplicacion'} },
